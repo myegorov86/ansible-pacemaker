@@ -80,10 +80,7 @@
   #notify: Restart corosync
 
 - name: Start all cluster nodes
-  service: name={{ item }} enabled=yes state=restarted
-  with_items:
-    - pacemaker
-    - corosync
+  cmd: "service pacemaker restart"
   ignore_errors: true
 
 - name: Check if path exists pacemaker_resource.d
