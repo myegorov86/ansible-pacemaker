@@ -80,7 +80,7 @@
   #notify: Restart corosync
 
 - name: Start all cluster nodes
-  cmd: "service pacemaker restart"
+  shell: 'service pacemaker restart'
   ignore_errors: true
 
 - name: Check if path exists pacemaker_resource.d
