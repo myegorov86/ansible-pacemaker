@@ -1,4 +1,4 @@
-# Pacemaker role for Ansible
+# Pacemaker role for Ansible.
 
 ## Requirements
 
