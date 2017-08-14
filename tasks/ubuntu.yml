@@ -1,4 +1,10 @@
 ---
+- name: Say the OS type
+  shell: "uname -a"
+  register: flavor
+
+- debug: var=flavor.stdout_lines
+
 - name: install python 2
   raw: test -e /usr/bin/python || (apt -y update && apt install -y python-minimal)
 
