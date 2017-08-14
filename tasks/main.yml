@@ -3,7 +3,9 @@
   yum_repository:
     name: centos
     description: centos YUM repo
+    baseurl: http://mirror.centos.org/centos/$releasever/os/$basearch/
     mirrorlist: http://mirrorlist.centos.org/?release=$releasever&arch=$basearch&repo=os
+    enabled: yes
 
 - name: Ensure cluster group membership
   fail: msg="Cluster hosts must be members of a group"
