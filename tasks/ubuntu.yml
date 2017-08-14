@@ -10,7 +10,7 @@
   when: pacemaker_ansible_group is not iterable
 
 - name: Install Pacemaker Configuration System package
-  yum: name={{ item }} state=installed
+  apt: name={{ item }} state=installed
   with_items: "{{ pacemaker_packages }}"
 
 - name: Enable and start PCS daemon
