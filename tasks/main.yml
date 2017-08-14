@@ -4,3 +4,6 @@
 
 - include: ubuntu.yml
   when: ansible_os_family == "Debian"
+  register: flavor
+
+- debug: var=flavor.stdout_lines
