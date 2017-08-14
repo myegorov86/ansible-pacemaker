@@ -59,6 +59,15 @@
     creates: /etc/corosync/corosync.conf
   when: pacemaker_corosync_mcastaddr is defined
 
+- name: Creates corosync config
+  template:
+    src: corosync.conf.j2
+    dest: /etc/corosync/corosync.conf
+    mode: 0400
+    owner: root
+    force: yes
+  #notify: Restart corosync
+
 - name: Setup cluster message bus without multicast support
   run_once: true
   command: >
@@ -69,15 +78,6 @@
   args:
     creates: /etc/corosync/corosync.conf
   when: pacemaker_corosync_mcastaddr is not defined
-
-#- name: Creates corosync config
-#  template:
-#    src: corosync.conf.j2
-#    dest: /etc/corosync/corosync.conf
-#    mode: 0400
-#    owner: root
-#    force: yes
-  #notify: Restart corosync
 
 - name: Start all cluster nodes
   shell: 'service pacemaker restart'
