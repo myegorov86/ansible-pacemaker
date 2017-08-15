@@ -61,7 +61,7 @@
 
 - name: Creates corosync config
   template:
-    src: ubunnu_corosync.conf.j2
+    src: ubuntu_corosync.conf.j2
     dest: /etc/corosync/corosync.conf
     mode: 0400
     owner: root
